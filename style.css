@@ -1,0 +1,167 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, "Segoe UI", Arial, sans-serif; }
+
+body {
+  background: #F4F6F9;
+  color: #1E293B;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 24px 80px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1B2431, #3A4A63);
+  color: #fff;
+  padding: 18px 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-icon {
+  width: 46px; height: 46px;
+  background: rgba(224,169,62,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.brand-title { font-size: 20px; font-weight: 700; }
+.brand-subtitle { font-size: 12px; color: #C7D2E0; }
+
+.status-pill {
+  background: rgba(224,169,62,0.15);
+  border: 1px solid #E0A93E;
+  color: #E0A93E;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel h2 { font-size: 16px; color: #1B2431; margin-bottom: 6px; }
+.hint { font-size: 12.5px; color: #64748B; margin-bottom: 16px; }
+
+.circular-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+
+.circular-card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.circular-card:hover { border-color: #E0A93E; background: #FFFBF0; }
+.circular-card.selected { border-color: #3A4A63; background: #F4F6F9; }
+
+.circular-card .c-title { font-size: 11px; color: #64748B; font-weight: 600; letter-spacing: 0.3px; }
+.circular-card .c-subject { font-size: 14px; font-weight: 600; color: #1E293B; margin-top: 4px; }
+
+.run-btn {
+  width: 100%;
+  padding: 13px;
+  background: #3A4A63;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.run-btn:disabled { background: #CBD5E1; cursor: not-allowed; }
+.run-btn:not(:disabled):hover { background: #1B2431; }
+
+.reasoning-log { display: flex; flex-direction: column; gap: 10px; }
+
+.reasoning-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  padding: 10px 12px;
+  background: #F4F6F9;
+  border-radius: 8px;
+  opacity: 0;
+  animation: stepIn 0.3s ease forwards;
+}
+@keyframes stepIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
+
+.reasoning-step .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #E0A93E; flex-shrink: 0;
+}
+
+.report-header {
+  background: #F4F6F9;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  color: #334155;
+}
+.report-header b { color: #1B2431; }
+
+.flags-list { display: flex; flex-direction: column; gap: 14px; }
+
+.flag-card {
+  border-left: 4px solid #94A3B8;
+  background: #F8FAFC;
+  border-radius: 8px;
+  padding: 14px 16px;
+  opacity: 0;
+  animation: stepIn 0.3s ease forwards;
+}
+.flag-card.high { border-left-color: #DC2626; }
+.flag-card.low { border-left-color: #E0A93E; }
+
+.flag-card .flag-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.flag-card .flag-clause { font-weight: 700; font-size: 14px; color: #1B2431; }
+.flag-card .severity-badge {
+  font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 10px;
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.severity-badge.high { background: #FEE2E2; color: #DC2626; }
+.severity-badge.low { background: #FEF3C7; color: #B45309; }
+
+.flag-card .flag-current {
+  font-size: 12.5px; color: #475569; font-style: italic;
+  margin-bottom: 8px; padding-left: 10px; border-left: 2px solid #E2E8F0;
+}
+.flag-card .flag-issue { font-size: 13px; color: #1E293B; }
+
+.reset-btn {
+  display: block;
+  margin: 20px auto 0;
+  background: none;
+  border: none;
+  color: #64748B;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.reset-btn:hover { color: #1B2431; }

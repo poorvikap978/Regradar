@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RegRadar — Agentic Compliance Radar</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <div class="brand-title">RegRadar</div>
+          <div class="brand-subtitle">Agentic Compliance Radar for Regulatory Change</div>
+        </div>
+      </div>
+      <div class="status-pill" id="status-pill">● Monitoring SEBI circulars</div>
+    </header>
+
+    <main class="content">
+      <section class="panel select-panel">
+        <h2>1. Select a new regulatory circular</h2>
+        <p class="hint">In production, RegRadar detects these automatically. For this demo, pick one to simulate a new circular arriving.</p>
+        <div id="circular-list" class="circular-list"></div>
+        <button id="run-btn" class="run-btn" disabled>▶ Run RegRadar Agent</button>
+      </section>
+
+      <section class="panel agent-panel" id="agent-panel" style="display:none;">
+        <h2>2. Agent reasoning</h2>
+        <div id="reasoning-log" class="reasoning-log"></div>
+      </section>
+
+      <section class="panel report-panel" id="report-panel" style="display:none;">
+        <h2>3. Compliance impact report</h2>
+        <div class="report-header" id="report-header"></div>
+        <div id="flags-list" class="flags-list"></div>
+      </section>
+    </main>
+
+    <button id="reset-btn" class="reset-btn">↻ Restart Demo</button>
+  </div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
